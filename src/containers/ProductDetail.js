@@ -12,8 +12,8 @@ const ProductDetail = () => {
         <>
             <div className='mainDetail'>
                 <div className='mainDetail_product'>
-                    <img src={newProduct.image} style={{ width: "300px" }}></img>
-                    <div className='mainDetail'>
+                    <img src={newProduct.image} alt="product_images" id="ProductImage"></img>
+                    <div className='mainDetail_items'>
                         <div className='mainDetail_product2'>
                             <h5>{newProduct.title}</h5>
                         </div>
