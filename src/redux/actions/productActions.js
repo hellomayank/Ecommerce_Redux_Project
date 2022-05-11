@@ -5,10 +5,12 @@ export const setProducts = (products) => {
         payload: products,
     };
 };
-export const selectedProduct = (product) => {
+/* export const selectedProduct = (product) => {
     return {
-        type: ActionTypes.SELECTED_PRODUCT,
+        type: ActionTypes.ADD_TO_CART,
         payload: product,
     };
-};
+}; */
+
+
 

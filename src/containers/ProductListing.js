@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import ProductComponent from './ProductComponent';
+import CarouselComponent from './CarouselComponent';
 import './ProductComponent.css'
 const ProductListing = () => {
     const [state, setState] = useState({
@@ -23,9 +24,12 @@ const ProductListing = () => {
         }
     }, []);
     return (
-        <div className={mobileView ? "" : "ui grid"}>
-            < ProductComponent />
-        </div >
+        <>
+            <CarouselComponent />
+            <div className={mobileView ? "" : "ui grid"}>
+                < ProductComponent />
+            </div >
+        </>
     )
 }
 
