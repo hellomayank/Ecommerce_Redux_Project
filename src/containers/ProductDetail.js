@@ -31,10 +31,11 @@ const ProductDetail = () => {
                         </div>
                         <div className='mainDetail_product2'>
                             <button id="btn_atc" onClick={() => setdata([...data, newProduct])}>Add to cart</button>
-                            <button id="btn_bn"  >Buy Now</button>
+                            <button id="btn_bn" >Buy Now</button>
                         </div>
                         <h5>Category : {newProduct.category}</h5>
                         <h5>Price : ${newProduct.price}</h5>
+                        <div>{newProduct.description}</div>
                     </div>
 
 

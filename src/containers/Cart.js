@@ -1,10 +1,24 @@
-import React from 'react'
-import { useSelector } from 'react-redux'
+import React, { useEffect } from 'react'
+import CartItems from './CartItems'
 const Cart = () => {
-    const products = useSelector((state) => state.cartProducts);
-    console.log(products);
+    const products = JSON.parse(localStorage.getItem("CartItems"))
+    let amount = 0;
+    useEffect(() => {
+        localStorage.setItem("amount", amount)
+    }, [localStorage.getItem("amount")])
+
     return (
-        <div></div>
+        <>
+
+            {products === null || products.length === 0 ? "No Items are there........" : products.map((item, idx) => {
+                amount += item.price * item.quantity;
+                return (
+                    < CartItems key={idx} product={item} />
+                )
+            })
+            }
+            <p>{amount}</p>
+        </>
     )
 }
 

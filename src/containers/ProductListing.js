@@ -26,7 +26,7 @@ const ProductListing = () => {
     return (
         <>
             <CarouselComponent />
-            <div className={mobileView ? "" : "ui grid"}>
+            <div className={mobileView ? "" : "ui grid"} style={{ background: "#1C1D1F" }}>
                 < ProductComponent />
             </div >
         </>

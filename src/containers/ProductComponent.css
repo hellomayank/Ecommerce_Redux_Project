@@ -4,6 +4,12 @@ text-decoration: none;
 a{
     text-decoration: none !important;
 }
+.content{
+    font-family: sans-serif !important;
+    color: white !important;
+    background-color: #1C1D1F !important;
+}
+
 .mainDetail{
     display: flex;
     align-items: center;
@@ -57,7 +63,7 @@ a{
 }
 #ProductImage
 {
-    width:30%
+    width:20%
 }
 .mainDetail_product2 h5{
    font-size: 20px;

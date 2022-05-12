@@ -7,7 +7,7 @@ const ProductComponent = () => {
         if (title.length < 20)
             return title;
         else {
-            let result = title.substring(0, 25);
+            let result = title.substring(0, 15);
             return result + "..."
         }
     }
@@ -20,12 +20,12 @@ const ProductComponent = () => {
                     <div className='ui link cards'>
                         <div className='card'>
                             <div className='image'>
-                                <img src={image} alt={title} style={{ height: "250px" }}></img>
+                                <img src={image} alt={title} style={{ height: "250px", padding: "15px", borderRadius: "28px" }}></img>
                             </div>
                             <div className='content'>
-                                <div className='header'>{getByTitle(title)}</div>
-                                <div className='meta price'>${price}</div>
-                                <div className='meta'>{category}</div>
+                                <div >{getByTitle(title)}</div>
+                                <div >${price}</div>
+                                <div >{category}</div>
                             </div>
                         </div>
                     </div>
