@@ -39,7 +39,6 @@ const CartItems = ({ product }) => {
                 return item.id != id
             });
             setProducts(updatedData);
-            window.location.reload();
         }
         else {
             setQty(Qty - 1);
