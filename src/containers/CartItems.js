@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import './Cart.css'
+import './Cart.css';
+import swal from 'sweetalert';
 const CartItems = ({ product }) => {
     const { id, title, image, price, category, quantity } = product;
     const getAlldata = () => {
@@ -12,8 +13,7 @@ const CartItems = ({ product }) => {
         }
     }
 
-    const [products, setProducts] = useState(getAlldata())
-
+    const [products, setProducts] = useState(getAlldata());
     const [Qty, setQty] = useState(quantity);
     const getByTitle = (title) => {
         if (title.length < 20)
@@ -25,25 +25,30 @@ const CartItems = ({ product }) => {
     }
     useEffect(() => {
         localStorage.setItem('CartItems', JSON.stringify(products))
-        let amount = 0;
-        products.map((item) => {
-            amount += item.price * item.quantity;
-        });
-        localStorage.setItem("amount", amount);
-        window.location.reload();
     }, [products])
 
     const Decrement = () => {
-        if (Qty == 1) {
-            let updatedData = products.filter((item) => {
-                return item.id != id
+        if (Qty === 1) {
+            swal({
+                title: "Are you sure?",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            }).then((willDelete) => {
+                if (willDelete) {
+
+                    let updatedData = products.filter((item) => {
+                        return item.id !== id
+                    });
+                    setProducts(updatedData);
+                    window.location.reload();
+                }
             });
-            setProducts(updatedData);
         }
         else {
             setQty(Qty - 1);
             let updatedData = products.map((elem) => {
-                if (elem.id == id) {
+                if (elem.id === id) {
                     return {
                         ...elem,
                         quantity: elem.quantity - 1
@@ -61,7 +66,7 @@ const CartItems = ({ product }) => {
     const Increment = () => {
         setQty(Qty + 1);
         let updatedData = products.map((elem) => {
-            if (elem.id == id) {
+            if (elem.id === id) {
                 return { ...elem, quantity: elem.quantity + 1 }
             }
             return elem;

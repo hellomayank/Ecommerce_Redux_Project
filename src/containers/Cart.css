@@ -2,6 +2,7 @@
     display: grid;
     place-items: center;
     background-color: #1C1D1F;
+    height: 100vh;
 }
 .cartItem{
     display: flex;

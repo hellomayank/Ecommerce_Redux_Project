@@ -5,10 +5,11 @@ const Cart = () => {
     let amount = 0;
     useEffect(() => {
         localStorage.setItem("amount", amount)
-    }, [localStorage.getItem("amount")])
+    });
 
     return (
         <>
+            <p>Total Cost {amount} Rs</p>
 
             {products === null || products.length === 0 ? "No Items are there........" : products.map((item, idx) => {
                 amount += item.price * item.quantity;
@@ -17,7 +18,7 @@ const Cart = () => {
                 )
             })
             }
-            <p>{amount}</p>
+
         </>
     )
 }
