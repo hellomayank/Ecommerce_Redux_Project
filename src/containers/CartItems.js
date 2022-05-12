@@ -30,6 +30,7 @@ const CartItems = ({ product }) => {
             amount += item.price * item.quantity;
         });
         localStorage.setItem("amount", amount);
+        window.location.reload();
     }, [products])
 
     const Decrement = () => {
